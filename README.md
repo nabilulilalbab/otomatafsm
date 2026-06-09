@@ -1,8 +1,15 @@
 # Otomata FSM Chatbot
 
-Project ini adalah chatbot berbasis **Finite State Machine (FSM)** menggunakan Streamlit. Bot bekerja seperti CS bot: user bisa mengetik bebas, bot mengklasifikasi topik ke menu/group yang relevan, lalu user menavigasi state lewat tombol.
+Project ini adalah chatbot berbasis **Finite State Machine (FSM)**. Bot bekerja seperti CS bot: user bisa mengetik bebas, bot mengklasifikasi topik ke menu/group yang relevan, lalu user menavigasi state lewat tombol.
 
 Domain contoh yang dipakai saat ini adalah pendampingan pertanian padi/sawah, termasuk obat pertanian, analisa gejala, budidaya, air sawah, gulma, hama, dan panen.
+
+Tersedia **dua frontend** yang berbagi core logic yang sama (`app/`):
+
+- **UI Streamlit** (`frontend.py`) - multipage: Home, Chat, Atur Bot.
+- **UI editorial** (`api_server.py` + `webui/`) - backend FastAPI + HTML/CSS/JS murni, gaya cream/beige minimalis.
+
+Core FSM di `app/` tidak bergantung pada framework UI apa pun, sehingga kedua frontend memanggil fungsi yang sama tanpa duplikasi logika.
 
 ## Objective
 
@@ -13,6 +20,7 @@ Tujuan project:
 - Menyediakan dashboard admin untuk mengatur state tree tanpa mengedit kode.
 - Menampilkan flow log proses bot agar alur keputusan bot mudah dipahami.
 - Menyediakan stress test untuk berbagai kemungkinan input production-like.
+- Memisahkan core logic dari UI agar bisa dipakai oleh banyak frontend (Streamlit dan web HTML/CSS/JS).
 
 ## Konsep FSM
 
@@ -46,46 +54,51 @@ RESET
 
 ## Fitur Utama
 
-- Chat UI dengan Streamlit.
+- Dua frontend: UI Streamlit dan UI editorial (FastAPI + HTML/CSS/JS).
 - FSM formal dengan `current_node_id`, `state_history`, `state_type`, dan `breadcrumb`.
 - Global router untuk mengklasifikasi free text ke group yang relevan.
 - Button navigation untuk masuk ke state/sub-state.
 - Transition validation: state menu hanya boleh pindah ke children-nya.
 - Back dan Reset.
-- Flow log per trigger di panel kiri chat.
-- Admin dashboard dengan tree explorer visual.
+- Flow log per trigger; di UI editorial bisa disembunyikan/ditampilkan lewat tombol.
+- Area chat scrollable dengan input yang selalu terlihat.
+- Admin dashboard dengan tree explorer visual, terproteksi password.
 - Tambah group menggunakan dropdown parent.
 - Pilihan jenis group: `Menu / punya turunan` atau `Jawaban final`.
 - Data bot disimpan di JSON: `data/bot_tree.json`.
 - Proteksi loop children, missing child, disabled node, duplicate id, dan corrupt JSON.
-- 50 unit/stress tests.
+- 56 unit/stress tests.
 
 ## Struktur Project
 
 ```text
-frontend.py
-  UI Streamlit untuk chat, flow log, dan admin dashboard.
+app/                      Core logic FSM (bebas framework UI)
+  fsm_engine.py             FSM formal: event handling, current state, history,
+                            transition validation, breadcrumb, edge export.
+  chat_engine.py            Classifier global, scoring keyword, build menu response,
+                            resolve node selection.
+  tree_store.py             Load/save/normalisasi tree JSON, parent dropdown, auto attach child.
+  flow_logger.py            Trace proses bot per trigger.
+  text.py                   Normalisasi teks dan slug id.
 
-app/fsm_engine.py
-  FSM formal: event handling, current state, history, transition validation, breadcrumb, edge export.
+frontend.py               UI Streamlit - Home (landing).
+pages/
+  1_Chat.py                 Page chat Streamlit.
+  2_Atur_Bot.py             Page admin Streamlit (terproteksi password).
+views/
+  chat_page.py              Render chat Streamlit.
+  admin_page.py             Render admin + password gate Streamlit.
+  theme.py                  Tema/CSS editorial untuk Streamlit.
 
-app/chat_engine.py
-  Classifier global, scoring keyword, build menu response, resolve node selection.
+api_server.py             UI editorial - backend FastAPI, membungkus app/ jadi JSON API.
+webui/
+  index.html                Home editorial.
+  chat.html                 Chat editorial (scrollable + toggle flow log).
+  admin.html                Admin editorial.
+  static/                   style.css, home.js, chat.js, admin.js.
 
-app/tree_store.py
-  Load/save/normalisasi tree JSON, parent dropdown, auto attach child.
-
-app/flow_logger.py
-  Trace proses bot per trigger.
-
-app/text.py
-  Normalisasi teks dan slug id.
-
-data/bot_tree.json
-  Data state, transition, dan output bot.
-
-tests/test_chat_engine.py
-  Unit test dan stress test production-style.
+data/bot_tree.json        Data state, transition, dan output bot.
+tests/test_chat_engine.py Unit test dan stress test production-style.
 ```
 
 ## Struktur Data FSM
@@ -166,15 +179,47 @@ Sistem otomatis menghubungkan group baru ke parent yang dipilih.
 
 ## Menjalankan Lokal
 
+Install dependency dulu:
+
 ```bash
 pip install -r requirements.txt
+```
+
+### UI Streamlit
+
+```bash
 streamlit run frontend.py
 ```
 
-Jika memakai virtualenv project:
+Atau dengan virtualenv project:
 
 ```bash
 venv/bin/python -m streamlit run frontend.py
+```
+
+### UI editorial (FastAPI + HTML/CSS/JS)
+
+```bash
+uvicorn api_server:app --port 8000
+```
+
+Atau dengan virtualenv project:
+
+```bash
+venv/bin/python -m uvicorn api_server:app --port 8000
+```
+
+Lalu buka `http://localhost:8000`. Halaman: `/` (Home), `/chat`, `/admin`.
+
+### Password admin
+
+Kedua UI memproteksi halaman admin dengan password. Default `admin`.
+
+- UI Streamlit: set lewat `.streamlit/secrets.toml` -> `admin_password = "..."`.
+- UI editorial: set lewat environment variable `ADMIN_PASSWORD`.
+
+```bash
+ADMIN_PASSWORD=rahasia venv/bin/python -m uvicorn api_server:app --port 8000
 ```
 
 ## Testing
@@ -236,3 +281,4 @@ FSM sudah formal:
 - Flow logging: ada
 - Admin editor: ada
 - Stress test: ada
+- Dua frontend (Streamlit + FastAPI/web): ada

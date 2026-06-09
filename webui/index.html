@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Otomata FSM Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">OTOMATA</div>
+      <div class="nav-menu">
+        <a href="/" class="active">Home</a>
+        <a href="/chat">Chat</a>
+        <a href="/admin">Atur Bot</a>
+        <a href="/chat" class="btn-dark">Mulai Chat</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div>
+        <div class="eyebrow">Finite State Machine Assistant</div>
+        <h1 class="hero-title">
+          Otomata chatbot yang <span class="muted">menelusuri</span>
+          setiap <span class="underline">transition</span>.
+        </h1>
+        <div class="hero-cta">
+          <a href="/chat" class="btn-dark btn-arrow">Mulai Chat</a>
+          <a href="/admin" class="btn-light">Atur Bot</a>
+        </div>
+      </div>
+      <p class="hero-description">
+        Ketik kebutuhanmu dengan bahasa bebas. Bot mengklasifikasi topik ke
+        state yang relevan, lalu kamu menavigasi transition lewat tombol.
+        State, event, dan output terlihat jelas lewat panel flow log.
+      </p>
+    </header>
+
+    <section class="featured-panel">
+      <div>
+        <div class="panel-eyebrow">Current Machine</div>
+        <div class="panel-title" id="bot-name">Asisten Pertanian</div>
+        <div class="state-pills">
+          <span class="state-pill">GLOBAL_ROUTER</span>
+          <span class="state-pill">MENU</span>
+          <span class="state-pill">FINAL</span>
+        </div>
+      </div>
+      <div class="panel-stats" id="panel-stats"></div>
+    </section>
+
+    <div class="section-head"><h2>Fitur Utama</h2></div>
+    <section class="news-grid">
+      <article class="news-card">
+        <h3>Global Router</h3>
+        <p>Klasifikasi free text ke Top 3 group paling relevan berdasarkan keyword.</p>
+        <div class="card-meta">
+          <div class="meta-row"><span class="meta-label">Event</span><span class="meta-value">FREE_TEXT</span></div>
+          <div class="meta-row"><span class="meta-label">Output</span><span class="meta-value">Top 3 Group</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <h3>State Navigation</h3>
+        <p>Pilih tombol untuk transisi ke sub-state. Tersedia Back dan Reset.</p>
+        <div class="card-meta">
+          <div class="meta-row"><span class="meta-label">Event</span><span class="meta-value">SELECT_NODE</span></div>
+          <div class="meta-row"><span class="meta-label">Output</span><span class="meta-value">Menu / Answer</span></div>
+        </div>
+      </article>
+      <article class="news-card">
+        <h3>Flow Log</h3>
+        <p>Lihat alur keputusan bot per trigger: normalize, scoring, sampai response.</p>
+        <div class="card-meta">
+          <div class="meta-row"><span class="meta-label">Scope</span><span class="meta-value">Per Trigger</span></div>
+          <div class="meta-row"><span class="meta-label">Detail</span><span class="meta-value">Step Trace</span></div>
+        </div>
+      </article>
+    </section>
+
+    <section class="link-section">
+      <div class="section-statement">
+        Setiap percakapan dibangun di atas state, transition, dan output yang eksplisit.
+      </div>
+      <div class="link-list" id="root-links"></div>
+    </section>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-col">
+        <div class="footer-brand">OTOMATA CHATBOT</div>
+        <span>Finite State Machine assistant</span>
+      </div>
+      <div class="footer-col">
+        <h4>Features</h4>
+        <span>Global Router</span>
+        <span>State Navigation</span>
+        <span>Flow Log</span>
+        <span>Admin Editor</span>
+      </div>
+      <div class="footer-col">
+        <h4>Resources</h4>
+        <span>Automata Theory</span>
+        <span>Examples</span>
+        <span>Documentation</span>
+      </div>
+      <div class="footer-col">
+        <h4>Project</h4>
+        <span>About</span>
+        <span>Repository</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/static/home.js"></script>
+</body>
+</html>

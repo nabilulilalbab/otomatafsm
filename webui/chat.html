@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat | Otomata FSM Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">OTOMATA</div>
+      <div class="nav-menu">
+        <a href="/">Home</a>
+        <a href="/chat" class="active">Chat</a>
+        <a href="/admin">Atur Bot</a>
+      </div>
+    </nav>
+
+    <div class="app-shell" id="app-shell">
+      <aside class="dark-panel">
+        <div class="panel-eyebrow">Flow Log</div>
+        <div class="panel-title" id="flow-trigger">Belum ada proses</div>
+        <div id="flow-steps">
+          <div class="flow-empty">Kirim chat atau klik button untuk melihat alur bot.</div>
+        </div>
+      </aside>
+
+      <main class="chat-main">
+        <h1>Chat</h1>
+        <p class="chat-sub">Ketik bebas untuk ganti topik kapan saja, atau pilih button yang disarankan bot.</p>
+
+        <div class="state-bar">
+          <div class="meta-row" style="border:none;"><span class="meta-label">Current State</span><span class="meta-value" id="st-current">GLOBAL_ROUTER</span></div>
+          <div class="meta-row"><span class="meta-label">Type</span><span class="meta-value" id="st-type">router</span></div>
+          <div class="meta-row" style="border:none;"><span class="meta-label">Breadcrumb</span><span class="meta-value" id="st-breadcrumb">GLOBAL_ROUTER</span></div>
+        </div>
+
+        <div class="chat-controls">
+          <button class="btn-light" id="btn-reset">Reset chat</button>
+          <button class="btn-light" id="btn-back" disabled>Back</button>
+          <button class="btn-light" id="btn-toggle-log">Tampilkan flow log</button>
+        </div>
+
+        <div class="chat-log" id="chat-log"></div>
+        <div class="chat-buttons" id="chat-buttons"></div>
+
+        <div class="chat-input-row">
+          <input class="chat-input" id="chat-input" type="text" placeholder="Tulis pesan..." autocomplete="off">
+          <button class="btn-dark btn-arrow" id="btn-send">Kirim</button>
+        </div>
+      </main>
+    </div>
+  </div>
+
+  <script src="/static/chat.js"></script>
+</body>
+</html>

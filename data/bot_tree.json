@@ -1,5 +1,5 @@
 {
-  "bot_name": "Asisten Sawah",
+  "bot_name": "Asisten Pertanian",
   "fallback": "Aku belum yakin topiknya. Pilih salah satu area ini dulu ya.",
   "root_nodes": [
     "obat_pertanian",
@@ -11,8 +11,20 @@
       "id": "obat_pertanian",
       "title": "Obat Pertanian",
       "description": "Bantuan memilih, memahami, dan memakai obat pertanian dengan aman.",
-      "keywords": ["obat", "pestisida", "fungisida", "insektisida", "herbisida", "racun", "semprot"],
-      "children": ["analisa_gejala_obat", "belajar_jenis_obat", "cara_aman_obat"],
+      "keywords": [
+        "obat",
+        "pestisida",
+        "fungisida",
+        "insektisida",
+        "herbisida",
+        "racun",
+        "semprot"
+      ],
+      "children": [
+        "analisa_gejala_obat",
+        "belajar_jenis_obat",
+        "cara_aman_obat"
+      ],
       "answer": "",
       "enabled": true
     },
@@ -20,8 +32,20 @@
       "id": "analisa_gejala_obat",
       "title": "Rekomendasi & Analisa Gejala",
       "description": "Cocok kalau tanaman sedang bermasalah dan butuh diarahkan dari gejala.",
-      "keywords": ["rekomendasi obat", "tanaman sakit", "padi sakit", "hama", "penyakit", "gejala", "wabah"],
-      "children": ["gejala_daun", "gejala_batang", "gejala_hama"],
+      "keywords": [
+        "rekomendasi obat",
+        "tanaman sakit",
+        "padi sakit",
+        "hama",
+        "penyakit",
+        "gejala",
+        "wabah"
+      ],
+      "children": [
+        "gejala_daun",
+        "gejala_batang",
+        "gejala_hama"
+      ],
       "answer": "",
       "enabled": true
     },
@@ -29,8 +53,18 @@
       "id": "gejala_daun",
       "title": "Gejala Daun",
       "description": "Daun menguning, bercak, pucat, atau berubah warna.",
-      "keywords": ["daun", "kuning", "pucat", "bercak", "warna daun", "daun rusak"],
-      "children": ["daun_menguning", "bercak_blast"],
+      "keywords": [
+        "daun",
+        "kuning",
+        "pucat",
+        "bercak",
+        "warna daun",
+        "daun rusak"
+      ],
+      "children": [
+        "daun_menguning",
+        "bercak_blast"
+      ],
       "answer": "",
       "enabled": true
     },
@@ -38,7 +72,12 @@
       "id": "daun_menguning",
       "title": "Daun Menguning",
       "description": "Analisa awal padi menguning atau pucat.",
-      "keywords": ["padi kuning", "daun kuning", "menguning", "pucat"],
+      "keywords": [
+        "padi kuning",
+        "daun kuning",
+        "menguning",
+        "pucat"
+      ],
       "children": [],
       "answer": "Daun padi menguning bisa mengarah ke kurang nitrogen, stres air, atau serangan hama. Cek dulu apakah kuningnya merata satu petak, bergerombol, atau muncul bersama bercak.",
       "enabled": true
@@ -47,7 +86,13 @@
       "id": "bercak_blast",
       "title": "Bercak Daun / Blast",
       "description": "Daun ada bercak atau curiga penyakit blast.",
-      "keywords": ["bercak", "blast", "bintik daun", "leher malai", "daun ada noda"],
+      "keywords": [
+        "bercak",
+        "blast",
+        "bintik daun",
+        "leher malai",
+        "daun ada noda"
+      ],
       "children": [],
       "answer": "Bercak blast biasanya berbentuk lonjong dengan tengah agak abu-abu dan pinggir lebih gelap. Kurangi kelembapan berlebih, hindari nitrogen berlebihan, dan pantau penyebarannya.",
       "enabled": true
@@ -56,8 +101,16 @@
       "id": "gejala_batang",
       "title": "Gejala Batang",
       "description": "Batang rebah, busuk, kering, atau roboh.",
-      "keywords": ["batang", "rebah", "roboh", "busuk", "kering"],
-      "children": ["padi_rebah"],
+      "keywords": [
+        "batang",
+        "rebah",
+        "roboh",
+        "busuk",
+        "kering"
+      ],
+      "children": [
+        "padi_rebah"
+      ],
       "answer": "",
       "enabled": true
     },
@@ -65,7 +118,12 @@
       "id": "padi_rebah",
       "title": "Padi Rebah",
       "description": "Tanaman roboh karena angin, hujan, atau batang lemah.",
-      "keywords": ["padi rebah", "tanaman rebah", "padi roboh", "batang lemah"],
+      "keywords": [
+        "padi rebah",
+        "tanaman rebah",
+        "padi roboh",
+        "batang lemah"
+      ],
       "children": [],
       "answer": "Padi rebah sering terkait batang lemah, angin/hujan kuat, atau nitrogen berlebihan. Jangan langsung diinjak untuk diberdirikan. Kurangi genangan dan pantau risiko busuk.",
       "enabled": true
@@ -74,8 +132,17 @@
       "id": "gejala_hama",
       "title": "Hama Terlihat",
       "description": "Ada serangga, wereng, ulat, atau tanaman seperti terbakar.",
-      "keywords": ["hama", "wereng", "ulat", "serangga", "terbakar", "kering bergerombol"],
-      "children": ["wereng_padi"],
+      "keywords": [
+        "hama",
+        "wereng",
+        "ulat",
+        "serangga",
+        "terbakar",
+        "kering bergerombol"
+      ],
+      "children": [
+        "wereng_padi"
+      ],
       "answer": "",
       "enabled": true
     },
@@ -83,7 +150,12 @@
       "id": "wereng_padi",
       "title": "Wereng Pada Padi",
       "description": "Cek indikasi wereng pada pangkal batang.",
-      "keywords": ["wereng", "wereng coklat", "hama wereng", "pangkal batang"],
+      "keywords": [
+        "wereng",
+        "wereng coklat",
+        "hama wereng",
+        "pangkal batang"
+      ],
       "children": [],
       "answer": "Kalau curiga wereng, cek pangkal batang. Gejalanya sering menguning lalu seperti terbakar bergerombol. Kurangi nitrogen berlebihan dan cek populasi sebelum memutuskan semprot.",
       "enabled": true
@@ -92,8 +164,17 @@
       "id": "belajar_jenis_obat",
       "title": "Belajar Jenis Obat",
       "description": "Belajar bedanya insektisida, fungisida, dan herbisida.",
-      "keywords": ["jenis obat", "belajar obat", "fungsi obat", "macam pestisida"],
-      "children": ["jenis_insektisida", "jenis_fungisida", "jenis_herbisida"],
+      "keywords": [
+        "jenis obat",
+        "belajar obat",
+        "fungsi obat",
+        "macam pestisida"
+      ],
+      "children": [
+        "jenis_insektisida",
+        "jenis_fungisida",
+        "jenis_herbisida"
+      ],
       "answer": "",
       "enabled": true
     },
@@ -101,7 +182,11 @@
       "id": "jenis_insektisida",
       "title": "Insektisida",
       "description": "Obat untuk hama serangga.",
-      "keywords": ["insektisida", "obat hama", "serangga"],
+      "keywords": [
+        "insektisida",
+        "obat hama",
+        "serangga"
+      ],
       "children": [],
       "answer": "Insektisida digunakan untuk mengendalikan hama serangga. Pakai hanya saat hama terpantau jelas, bukan sekadar untuk pencegahan rutin tanpa gejala.",
       "enabled": true
@@ -110,7 +195,12 @@
       "id": "jenis_fungisida",
       "title": "Fungisida",
       "description": "Obat untuk penyakit jamur seperti bercak/blast.",
-      "keywords": ["fungisida", "jamur", "blast", "bercak"],
+      "keywords": [
+        "fungisida",
+        "jamur",
+        "blast",
+        "bercak"
+      ],
       "children": [],
       "answer": "Fungisida dipakai untuk penyakit akibat jamur. Pada padi, contoh konteksnya bercak daun atau blast. Tetap cek gejala dulu agar tidak salah sasaran.",
       "enabled": true
@@ -119,7 +209,12 @@
       "id": "jenis_herbisida",
       "title": "Herbisida",
       "description": "Obat untuk gulma atau rumput liar.",
-      "keywords": ["herbisida", "gulma", "rumput liar", "rumput sawah"],
+      "keywords": [
+        "herbisida",
+        "gulma",
+        "rumput liar",
+        "rumput sawah"
+      ],
       "children": [],
       "answer": "Herbisida digunakan untuk mengendalikan gulma. Pastikan jenis gulma dan umur tanaman sesuai, karena pemakaian yang salah bisa merusak padi.",
       "enabled": true
@@ -128,7 +223,13 @@
       "id": "cara_aman_obat",
       "title": "Cara Aman Pakai Obat",
       "description": "Panduan aman sebelum menyemprot obat pertanian.",
-      "keywords": ["cara semprot", "pakai obat", "dosis", "aman", "aplikasi pestisida"],
+      "keywords": [
+        "cara semprot",
+        "pakai obat",
+        "dosis",
+        "aman",
+        "aplikasi pestisida"
+      ],
       "children": [],
       "answer": "Gunakan obat sesuai label, jangan campur produk sembarangan, semprot saat angin tidak kencang, pakai pelindung diri, dan hindari dosis berlebihan.",
       "enabled": true
@@ -137,8 +238,20 @@
       "id": "masalah_padi",
       "title": "Masalah Padi",
       "description": "Arahkan masalah umum padi: daun, batang, hama, air, atau gulma.",
-      "keywords": ["padi bermasalah", "padi sakit", "padi aneh", "padi tidak sehat", "masalah padi"],
-      "children": ["gejala_daun", "gejala_batang", "gejala_hama", "air_sawah", "gulma_sawah"],
+      "keywords": [
+        "padi bermasalah",
+        "padi sakit",
+        "padi aneh",
+        "padi tidak sehat",
+        "masalah padi"
+      ],
+      "children": [
+        "gejala_daun",
+        "gejala_batang",
+        "gejala_hama",
+        "air_sawah",
+        "gulma_sawah"
+      ],
       "answer": "",
       "enabled": true
     },
@@ -146,7 +259,13 @@
       "id": "air_sawah",
       "title": "Air Sawah",
       "description": "Masalah sawah kering, tergenang, atau irigasi naik turun.",
-      "keywords": ["air sawah", "sawah kering", "sawah tergenang", "irigasi", "pengairan"],
+      "keywords": [
+        "air sawah",
+        "sawah kering",
+        "sawah tergenang",
+        "irigasi",
+        "pengairan"
+      ],
       "children": [],
       "answer": "Air sawah sebaiknya stabil dan tidak terlalu dalam. Awal tanam cukup lembap/dangkal, fase besar dijaga stabil, dan menjelang panen air biasanya dikurangi.",
       "enabled": true
@@ -155,7 +274,12 @@
       "id": "gulma_sawah",
       "title": "Gulma Sawah",
       "description": "Rumput liar atau gulma yang bersaing dengan padi.",
-      "keywords": ["gulma", "rumput sawah", "rumput liar", "lahan kotor"],
+      "keywords": [
+        "gulma",
+        "rumput sawah",
+        "rumput liar",
+        "lahan kotor"
+      ],
       "children": [],
       "answer": "Gulma paling mengganggu di fase awal karena berebut nutrisi. Kalau masih sedikit bisa disiang manual/gosrok. Kalau rapat, segera kendalikan sebelum padi kalah tumbuh.",
       "enabled": true
@@ -164,8 +288,19 @@
       "id": "budidaya_padi",
       "title": "Budidaya Padi",
       "description": "Topik tanam, benih, pupuk, air, dan panen.",
-      "keywords": ["budidaya", "tanam padi", "benih padi", "pupuk padi", "panen padi"],
-      "children": ["jadwal_tanam", "benih_padi", "pupuk_padi", "panen_padi"],
+      "keywords": [
+        "budidaya",
+        "tanam padi",
+        "benih padi",
+        "pupuk padi",
+        "panen padi"
+      ],
+      "children": [
+        "jadwal_tanam",
+        "benih_padi",
+        "pupuk_padi",
+        "panen_padi"
+      ],
       "answer": "",
       "enabled": true
     },
@@ -173,7 +308,12 @@
       "id": "jadwal_tanam",
       "title": "Jadwal Tanam",
       "description": "Menentukan kapan mulai tanam padi.",
-      "keywords": ["jadwal tanam", "kapan tanam", "musim tanam", "mulai tanam"],
+      "keywords": [
+        "jadwal tanam",
+        "kapan tanam",
+        "musim tanam",
+        "mulai tanam"
+      ],
       "children": [],
       "answer": "Waktu tanam paling aman mengikuti kondisi air dan tanah. Kalau air belum stabil atau sawah masih sering kering-putus, lebih baik tunggu beberapa hari.",
       "enabled": true
@@ -182,7 +322,12 @@
       "id": "benih_padi",
       "title": "Benih Padi",
       "description": "Memilih benih atau varietas padi.",
-      "keywords": ["benih", "bibit", "varietas", "benih padi"],
+      "keywords": [
+        "benih",
+        "bibit",
+        "varietas",
+        "benih padi"
+      ],
       "children": [],
       "answer": "Pilih benih sesuai kondisi sawah. Jika rawan wereng, cari varietas lebih tahan. Jika air terbatas, pilih umur panen yang tidak terlalu panjang.",
       "enabled": true
@@ -191,7 +336,13 @@
       "id": "pupuk_padi",
       "title": "Pupuk Padi",
       "description": "Pemupukan dasar dan susulan.",
-      "keywords": ["pupuk", "urea", "npk", "pemupukan", "nutrisi"],
+      "keywords": [
+        "pupuk",
+        "urea",
+        "npk",
+        "pemupukan",
+        "nutrisi"
+      ],
       "children": [],
       "answer": "Pemupukan padi sebaiknya bertahap. Jangan semua di awal. Jika daun terlalu hijau tua dan batang lemah, jangan buru-buru menambah urea.",
       "enabled": true
@@ -200,7 +351,12 @@
       "id": "panen_padi",
       "title": "Panen Padi",
       "description": "Cek tanda padi siap panen.",
-      "keywords": ["panen", "kapan panen", "gabah menguning", "padi siap panen"],
+      "keywords": [
+        "panen",
+        "kapan panen",
+        "gabah menguning",
+        "padi siap panen"
+      ],
       "children": [],
       "answer": "Padi siap panen saat sebagian besar malai menguning dan gabah terasa keras. Cek beberapa titik sawah, jangan hanya satu sudut.",
       "enabled": true

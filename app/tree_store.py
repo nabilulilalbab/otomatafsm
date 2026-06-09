@@ -11,7 +11,7 @@ DEFAULT_FALLBACK = "Aku belum yakin topiknya. Pilih salah satu area ini dulu ya.
 def default_tree_data() -> dict:
     """Tree kosong yang tetap aman untuk app."""
     return {
-        "bot_name": "Asisten Sawah",
+        "bot_name": "Asisten Pertanian",
         "fallback": DEFAULT_FALLBACK,
         "root_nodes": [],
         "nodes": [],
@@ -74,7 +74,7 @@ def normalize_node(node: dict) -> dict:
 
 def normalize_tree(data: dict) -> dict:
     """Rapikan tree dan tangani duplicate id dengan mengambil node pertama."""
-    bot_name = (data.get("bot_name") or "Asisten Sawah").strip()
+    bot_name = (data.get("bot_name") or "Asisten Pertanian").strip()
     fallback = (data.get("fallback") or DEFAULT_FALLBACK).strip()
     nodes = []
     seen_ids = set()

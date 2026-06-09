@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atur Bot | Otomata FSM Chatbot</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="container">
+    <nav class="navbar">
+      <div class="logo">OTOMATA</div>
+      <div class="nav-menu">
+        <a href="/">Home</a>
+        <a href="/chat">Chat</a>
+        <a href="/admin" class="active">Atur Bot</a>
+      </div>
+    </nav>
+
+    <!-- Login gate -->
+    <div id="login-view">
+      <div class="login-wrap">
+        <h2>Atur Bot</h2>
+        <p class="chat-sub">Halaman ini terproteksi. Masukkan password admin untuk lanjut.</p>
+        <div class="field">
+          <label>Password admin</label>
+          <input type="password" id="admin-pass" autocomplete="current-password">
+        </div>
+        <div class="form-error hidden" id="login-error">Password salah.</div>
+        <button class="btn-dark" id="btn-login">Masuk</button>
+      </div>
+    </div>
+
+    <!-- Admin dashboard -->
+    <div id="admin-view" class="hidden">
+      <div class="section-head" style="margin-top:32px;">
+        <h2>Atur Bot</h2>
+      </div>
+      <p class="chat-sub">Group = State, Children = Transition, Answer = Final State Output, Keywords = Global Router Classifier.</p>
+
+      <div class="admin-grid">
+        <div>
+          <div class="panel-card">
+            <h3>Tree Bot</h3>
+            <div id="tree-rows"></div>
+          </div>
+          <div class="panel-card">
+            <h3>Tambah Group</h3>
+            <div class="field">
+              <label>Letakkan di</label>
+              <select id="add-parent"></select>
+            </div>
+            <div class="field">
+              <label>Jenis group</label>
+              <select id="add-type">
+                <option value="menu">Menu / punya turunan</option>
+                <option value="final">Jawaban final</option>
+              </select>
+            </div>
+            <div class="field"><label>Judul button</label><input id="add-title" type="text"></div>
+            <div class="field"><label>Description</label><textarea id="add-desc"></textarea></div>
+            <div class="field"><label>Keywords (pisah koma / baris)</label><textarea id="add-keywords"></textarea></div>
+            <div class="field" id="add-answer-wrap"><label>Answer final</label><textarea id="add-answer"></textarea></div>
+            <div class="form-error hidden" id="add-error"></div>
+            <div class="form-ok hidden" id="add-ok">Group baru disimpan.</div>
+            <button class="btn-dark" id="btn-add">Tambah group</button>
+          </div>
+        </div>
+
+        <div>
+          <div class="panel-card" id="detail-card">
+            <h3>Detail Group</h3>
+            <div id="detail-empty" class="chat-sub">Pilih group dari tree untuk melihat detail.</div>
+            <div id="edit-form" class="hidden">
+              <div class="field"><label>ID</label><input id="edit-id" type="text" disabled></div>
+              <div class="field"><label>Title</label><input id="edit-title" type="text"></div>
+              <div class="field"><label>Description</label><textarea id="edit-desc"></textarea></div>
+              <div class="field"><label>Keywords</label><textarea id="edit-keywords"></textarea></div>
+              <div class="field"><label>Children ids</label><textarea id="edit-children"></textarea></div>
+              <div class="field"><label>Answer final</label><textarea id="edit-answer"></textarea></div>
+              <div class="field">
+                <label>Status</label>
+                <select id="edit-enabled"><option value="true">Aktif</option><option value="false">Nonaktif</option></select>
+              </div>
+              <div class="form-error hidden" id="edit-error"></div>
+              <div class="form-ok hidden" id="edit-ok">Perubahan disimpan.</div>
+              <div class="row-actions">
+                <button class="btn-dark" id="btn-save">Simpan perubahan</button>
+                <button class="btn-light" id="btn-delete">Hapus group</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <h3>Bot Settings</h3>
+            <div class="field"><label>Bot name</label><input id="set-name" type="text"></div>
+            <div class="field"><label>Fallback</label><textarea id="set-fallback"></textarea></div>
+            <div class="form-ok hidden" id="set-ok">Settings disimpan.</div>
+            <button class="btn-dark" id="btn-settings">Simpan settings</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/admin.js"></script>
+</body>
+</html>

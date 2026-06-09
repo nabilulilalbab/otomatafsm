@@ -124,7 +124,7 @@ def test_load_tree_corrupt_json_falls_back_to_default(tmp_path):
 
     loaded = load_tree(path)
 
-    assert loaded["bot_name"] == "Asisten Sawah"
+    assert loaded["bot_name"] == "Asisten Pertanian"
     assert loaded["nodes"] == []
 
 
